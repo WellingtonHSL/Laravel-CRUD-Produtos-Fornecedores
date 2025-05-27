@@ -37,7 +37,7 @@ class ProductController extends Controller
             'supplier_id' => 'required|exists:suppliers,id',
         ]);
         Product::create($request->all());
-        return redirect()->route('products.index')->with('success', 'Produto salvo com sucesso!');
+        return redirect()->route('products.index')->with('success', 'Produto criado com sucesso!');
     }
 
     /**
@@ -63,7 +63,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->update($request->all());
-        return redirect()->route('products.index')->with('success', 'Produto salvo com sucesso!');
+        return redirect()->route('products.index')->with('success', 'Produto atualizado com sucesso!');
     }
 
     /**
@@ -72,6 +72,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Produto salvo com sucesso!');
+        return redirect()->route('products.index')->with('success', 'Produto excluído com sucesso!');
     }
 }
