@@ -32,12 +32,12 @@ class ProductController extends Controller
     public function store(Request $request)
     {
             $request->validate([
-            'nameProduct' => 'required',
-            'pricc' => 'required|numeric',
+            'nome' => 'required',
+            'preco' => 'required|numeric',
             'supplier_id' => 'required|exists:suppliers,id',
         ]);
         Product::create($request->all());
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success', 'Produto salvo com sucesso!');
     }
 
     /**
@@ -63,7 +63,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->update($request->all());
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success', 'Produto salvo com sucesso!');
     }
 
     /**
@@ -72,6 +72,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success', 'Produto salvo com sucesso!');
     }
 }

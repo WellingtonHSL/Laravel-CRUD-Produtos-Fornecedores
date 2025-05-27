@@ -6,7 +6,7 @@ use App\Http\Controllers\SupplierController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
     Route::resource('suppliers', SupplierController::class);
     Route::resource('products', ProductController::class);
